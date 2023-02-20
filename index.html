@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head><title>aad</title></head>
+    <body>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const ws = new WebSocket('ws://localhost:8080/');
+                ws.onmessage = ({data}) => {
+                    console.log(data);
+                };
+            });
+        </script>
+    </body>
+</html>
