@@ -33,7 +33,6 @@ wss.on('connection', async function connection(ws) {
                 // do nothing
             } else {
                 lastGameCode = newOdd[0];
-                // console.log(newOdd);
                 // player bets data
                 await page.click(tenth);
                 listSel = 'body > div.fade.animated.pulse.modal.show > div > div > div.modal-body > div.table-responsive.game-stats > table > tbody > tr > td.num-style'
@@ -56,8 +55,8 @@ wss.on('connection', async function connection(ws) {
                 total = profits.reduce((a,b) => {
                     return a+b;
                 });
-                // console.log(profits);
-                // console.log(total);
+                console.log(total)
+                total = total > 0 ? -Math.abs(total) : Math.abs(total) ;
                 msg = '-> total: ' + total + '|| odd: ' + newOdd[1] + '';
                 ws.send(msg)
                 // close
